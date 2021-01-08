@@ -12,10 +12,6 @@ import java.util.List;
 
 public class Main extends Application {
     /*
-    If everything is red, then:
-    File > Project Structure > Libraries > '+' new Project Library > Java > (chose the lib folder on your PC,
-    example Location: "C:\Users\NAME\IdeaProjects\Teamarbeit QUIZ\lib"
-
     We know that a lot of code can be reused/shortened.
     Known bugs:
     -when the replace Joker is used in exam mode the array will be out of bounds 16/16. We haven't figured that one out yet without knowing how to use the
