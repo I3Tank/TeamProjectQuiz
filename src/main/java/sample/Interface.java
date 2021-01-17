@@ -2,6 +2,7 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -17,6 +18,7 @@ public class Interface {
     Initialize strings used in this class, ComboBox "modeSelect" is used for the topic dropdown menu
      */
     private final QuestionCatalog qC = new QuestionCatalog();
+    private final CalculateAndFormat cAndF = new CalculateAndFormat();
     private String questionText;
     private String rightAnswer;
     private String wrongAnswer1;
@@ -33,89 +35,89 @@ public class Interface {
      */
     public void newQuestion(){
         String[] parts = qC.getQuestion();
-        questionText = formatText(parts[0]);
-        rightAnswer = formatText(parts[1]);
-        wrongAnswer1 = formatText(parts[2]);
-        wrongAnswer2 = formatText(parts[3]);
-        wrongAnswer3 = formatText(parts[4]);
+        questionText = cAndF.formatQuestion(parts[0]);
+        rightAnswer = cAndF.formatAnswer(parts[1]);
+        wrongAnswer1 = cAndF.formatAnswer(parts[2]);
+        wrongAnswer2 = cAndF.formatAnswer(parts[3]);
+        wrongAnswer3 = cAndF.formatAnswer(parts[4]);
     }
-    public Scene setupScene(Label q, Label progress, Button a, Button b, Button c, Button d, Button j1, Button j2, Button j3, Button exitGame){
+    public Scene setupScene(Label q, Label progress, Button a, Button b, Button c, Button d, Button j1, Button j2, Button j3, Button backToMainMenu){
 
         q.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 40));
         q.setTranslateX(-100);
-        q.setTranslateY(-250);
+        q.setTranslateY(-150);
 
         a.setTranslateX(-100);
-        a.setTranslateY(0);
+        a.setTranslateY(50);
         a.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
-        a.setPrefWidth(500);
+        a.setPrefWidth(800);
 
         b.setTranslateX(-100);
-        b.setTranslateY(100);
+        b.setTranslateY(125);
         b.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
-        b.setPrefWidth(500);
+        b.setPrefWidth(800);
 
         c.setTranslateX(-100);
         c.setTranslateY(200);
         c.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
-        c.setPrefWidth(500);
+        c.setPrefWidth(800);
 
         d.setTranslateX(-100);
-        d.setTranslateY(300);
+        d.setTranslateY(275);
         d.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
-        d.setPrefWidth(500);
+        d.setPrefWidth(800);
 
         Label joker = new Label("Joker:");
         joker.setTranslateY(50);
-        joker.setTranslateX(400);
+        joker.setTranslateX(500);
         joker.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 30));
 
-        j1.setTranslateX(400);
+        j1.setTranslateX(500);
         j1.setTranslateY(125);
         j1.setText("50 : 50");
         j1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
         j1.setPrefWidth(150);
 
-        j2.setTranslateX(400);
+        j2.setTranslateX(500);
         j2.setTranslateY(200);
         j2.setText("Replace");
         j2.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
         j2.setPrefWidth(150);
 
-        j3.setTranslateX(400);
+        j3.setTranslateX(500);
         j3.setTranslateY(275);
         j3.setText("Cheat");
         j3.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
         j3.setPrefWidth(150);
 
-        score.setTranslateY(-250);
-        score.setTranslateX(400);
+        score.setTranslateY(-200);
+        score.setTranslateX(500);
         score.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 30));
 
-        exitGame.setTranslateX(400);
-        exitGame.setTranslateY(350);
-        exitGame.setText("Exit");
-        exitGame.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
-        exitGame.setPrefWidth(125);
+        backToMainMenu.setTranslateX(500);
+        backToMainMenu.setTranslateY(-75);
+        backToMainMenu.setText("Menu");
+        backToMainMenu.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
+        backToMainMenu.setPrefWidth(125);
 
-        progress.setTranslateY(-350);
-        progress.setTranslateX(400);
+        progress.setTranslateY(-300);
+        progress.setTranslateX(500);
         progress.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 30));
 
         Line line = new Line();
-        line.setStartY(800);
-        line.setTranslateX(300);
+        line.setStartY(675);
+        line.setTranslateX(400);
         line.setStrokeWidth(5);
 
         Line line2 = new Line();
         line2.setStartX(200);
-        line2.setTranslateX(400);
+        line2.setTranslateX(500);
         line2.setStrokeWidth(5);
 
         StackPane layout = new StackPane();
-        layout.getChildren().addAll(q,a,b,c,d,line, line2, score, j1, j2, j3, joker, exitGame, progress);
+        layout.getChildren().addAll(q,a,b,c,d,line, line2, score, j1, j2, j3, joker, backToMainMenu, progress);
 
-        return new Scene(layout, 1000, 800);
+        return new Scene(layout, 1200, 675);
     }
 
     /*
@@ -130,6 +132,7 @@ public class Interface {
         endText.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 40));
 
         mainMenu.setText("Main menu");
+        mainMenu.setTranslateX(0);
         mainMenu.setTranslateY(175);
         mainMenu.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
         mainMenu.setPrefWidth(300);
@@ -141,7 +144,7 @@ public class Interface {
 
         StackPane endLayout = new StackPane();
         endLayout.getChildren().addAll(endText, mainMenu, exit);
-        return new Scene(endLayout, 1000, 800);
+        return new Scene(endLayout, 1000, 675);
     }
     public Scene endOfPractiseMode(Button mainMenu, Button exit, Button retry){
         Label endText = new Label((qC.getQuestionLength()- sample.Main.getWrong()) +" out of " + qC.getQuestionLength() + " correct answers, that are " + String.format("%.2f" , calculateGrade(sample.Main.getWrong())) + "% \nYour Grade: " + finalGrade());
@@ -150,6 +153,7 @@ public class Interface {
         endText.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 40));
 
         mainMenu.setText("Main menu");
+        mainMenu.setTranslateX(0);
         mainMenu.setTranslateY(175);
         mainMenu.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
         mainMenu.setPrefWidth(300);
@@ -165,7 +169,7 @@ public class Interface {
 
         StackPane endLayout = new StackPane();
         endLayout.getChildren().addAll(endText, mainMenu, exit, retry);
-        return new Scene(endLayout, 1000, 800);
+        return new Scene(endLayout, 1000, 675);
     }
     /*
     "lost" is the scene used in exam mode if you cant reach over 60% anymore.
@@ -179,6 +183,7 @@ public class Interface {
 
         mainMenu.setText("Main menu");
         mainMenu.setTranslateY(175);
+        mainMenu.setTranslateX(0);
         mainMenu.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 20));
         mainMenu.setPrefWidth(300);
 
@@ -189,7 +194,7 @@ public class Interface {
 
         StackPane endLayout = new StackPane();
         endLayout.getChildren().addAll(endText, mainMenu, exit);
-        return new Scene(endLayout, 1000, 800);
+        return new Scene(endLayout, 1000, 675);
     }
     public Scene startScreen(Button startExamMode, Button startPractiseMode, Button exit){
         ObservableList<String> modes = getModeList();
@@ -246,19 +251,8 @@ public class Interface {
     }
     public void calculatePractiseGrade(double wrong, double counter){
         this.practiseGrade =  ((counter - wrong)/counter) * 100;
-        score.setText("Grade: \n " + finalGrade());
-    }
-    public String formatText(String toFormat){
-        int lastSpace = 0;
-        if(toFormat.length() >= 40) {
-            for (int i = 0; i < toFormat.length(); i++) {
-                if (toFormat.charAt(i) == ' ' && i < 40) {
-                    lastSpace = i;
-                }
-            }
-            return toFormat.replaceAll("(.{"+ (lastSpace + 1) + "})", "$1\n");
-        }
-        return toFormat;
+        score.setTextAlignment(TextAlignment.CENTER);
+        score.setText("Grade: \n" + finalGrade());
     }
     public int finalGrade(){
         double grade;
@@ -271,13 +265,13 @@ public class Interface {
         if(grade >= 90){
             return 1;
         }
-        if(grade >= 80){
+        else if(grade >= 80){
             return 2;
         }
-        if(grade >= 70){
+        else if(grade >= 70){
             return 3;
         }
-        if(grade >= 60){
+        else if(grade >= 60){
             return 4;
         }
         return 5;

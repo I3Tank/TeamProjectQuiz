@@ -81,33 +81,16 @@ public class Main extends Application {
         */
         start = anInterface.startScreen(startExamMode, startPractiseMode, exitGame);
         primaryStage.setScene(start); //Needed to display the start scene at the beginning
+        primaryStage.setResizable(false);
         primaryStage.show();
 
         startExamMode.setOnAction(e -> {
-            System.out.println("Start exam mode");
             practiseMode = false;
-            wrong = 0;
-            counter = 0;
-            resetJoker();
-            qc.resetQuestionCatalog(anInterface.getSelectedTopic());
-            questionAndAnswer = anInterface.setupScene(question, progress, answerA, answerB, answerC, answerD, joker1, joker2, joker3, exitGame);
-            primaryStage.setScene(questionAndAnswer);
-            primaryStage.centerOnScreen();
-            primaryStage.show();
-            nextQuestion();
+            setupNewGame(primaryStage);
         });
         startPractiseMode.setOnAction(e -> {
-            System.out.println("Start practise mode");
             practiseMode = true;
-            wrong = 0;
-            counter = 0;
-            resetJoker();
-            qc.resetQuestionCatalog(anInterface.getSelectedTopic());
-            questionAndAnswer = anInterface.setupScene(question, progress, answerA, answerB, answerC, answerD, joker1, joker2, joker3, exitGame);
-            primaryStage.setScene(questionAndAnswer);
-            primaryStage.centerOnScreen();
-            primaryStage.show();
-            nextQuestion();
+            setupNewGame(primaryStage);
         });
         exitGame.setOnAction(e -> {
             primaryStage.close();
@@ -118,82 +101,16 @@ public class Main extends Application {
         displayed
          */
         answerA.setOnAction(e -> {
-            if(!practiseMode) {
-                if (!answerA.getText().equals(anInterface.getRightAnswer())) {
-                    wrong++;
-                }
-                nextQuestion();
-            }
-            else{
-                if(answerA.getText().equals(anInterface.getRightAnswer())){
-                    nextQuestion();
-                }
-                else{
-                    answerA.setDisable(true);
-                    wrong++;
-                    anInterface.calculatePractiseGrade(wrong, counter);
-                }
-            }
-            checkAnswer(primaryStage);
+            buttonFunction(answerA, primaryStage);
         });
         answerB.setOnAction(e -> {
-            if(!practiseMode){
-                if (!answerB.getText().equals(anInterface.getRightAnswer())) {
-                    wrong++;
-                }
-                nextQuestion();
-            }
-            else{
-                if(answerB.getText().equals(anInterface.getRightAnswer())){
-                    nextQuestion();
-                }
-                else{
-                    answerB.setDisable(true);
-                    wrong++;
-                    anInterface.calculatePractiseGrade(wrong, counter);
-                }
-
-            }
-            checkAnswer(primaryStage);
+            buttonFunction(answerB, primaryStage);
         });
         answerC.setOnAction(e -> {
-            if(!practiseMode){
-                if (!answerC.getText().equals(anInterface.getRightAnswer())) {
-                    wrong++;
-                }
-                nextQuestion();
-            }
-            else{
-                if(answerC.getText().equals(anInterface.getRightAnswer())){
-                    nextQuestion();
-                }
-                else{
-                    answerC.setDisable(true);
-                    wrong++;
-                    anInterface.calculatePractiseGrade(wrong, counter);
-                }
-
-            }
-            checkAnswer(primaryStage);
+            buttonFunction(answerC, primaryStage);
         });
         answerD.setOnAction(e -> {
-            if(!practiseMode){
-                if (!answerD.getText().equals(anInterface.getRightAnswer())) {
-                    wrong++;
-                }
-                nextQuestion();
-            }
-            else{
-                if(answerD.getText().equals(anInterface.getRightAnswer())){
-                    nextQuestion();
-                }
-                else{
-                    answerD.setDisable(true);
-                    wrong++;
-                    anInterface.calculatePractiseGrade(wrong, counter);
-                }
-            }
-            checkAnswer(primaryStage);
+            buttonFunction(answerD, primaryStage);
         });
         /*
         "joker1" is the 50:50 joker, that disables 2 wrong answers. "joker2" is our replace joker, it replaces the question with another one and corrects the counter.
@@ -214,20 +131,11 @@ public class Main extends Application {
         });
         backToMainMenu.setOnAction(e -> {
             primaryStage.setScene(anInterface.startScreen(startExamMode, startPractiseMode, exitGame));
-            primaryStage.centerOnScreen();
-            primaryStage.show();
+            setupWindow(primaryStage);
         });
         retry.setOnAction(e -> {
             practiseMode = true;
-            wrong = 0;
-            counter = 0;
-            resetJoker();
-            qc.resetQuestionCatalog(anInterface.getSelectedTopic());
-            questionAndAnswer = anInterface.setupScene(question, progress, answerA, answerB, answerC, answerD, joker1, joker2, joker3, exitGame);
-            primaryStage.setScene(questionAndAnswer);
-            primaryStage.centerOnScreen();
-            primaryStage.show();
-            nextQuestion();
+            setupNewGame(primaryStage);
         });
     }
     /*
@@ -239,12 +147,13 @@ public class Main extends Application {
         if(counter <= 15 || practiseMode) {
             anInterface.newQuestion();
 
-            String a = anInterface.getRightAnswer();
-            String b = anInterface.getWrongAnswer1();
-            String c = anInterface.getWrongAnswer2();
-            String d = anInterface.getWrongAnswer3();
+            String[] answers = new String[4];
 
-            String[] answers = {a, b, c, d};
+            answers[0] = anInterface.getRightAnswer();
+            answers[1] = anInterface.getWrongAnswer1();
+            answers[2] = anInterface.getWrongAnswer2();
+            answers[3] = anInterface.getWrongAnswer3();
+
             List<String> stringList = Arrays.asList(answers);
             Collections.shuffle(stringList);
             stringList.toArray(answers);
@@ -255,15 +164,10 @@ public class Main extends Application {
             answerC.setText(answers[2]);
             answerD.setText(answers[3]);
 
-            answerA.setDisable(false);
-            answerB.setDisable(false);
-            answerC.setDisable(false);
-            answerD.setDisable(false);
-
-            answerA.setStyle(null);
-            answerB.setStyle(null);
-            answerC.setStyle(null);
-            answerD.setStyle(null);
+            setupButton(answerA);
+            setupButton(answerB);
+            setupButton(answerC);
+            setupButton(answerD);
 
             if (practiseMode) {
                 anInterface.calculatePractiseGrade(wrong, counter);
@@ -281,19 +185,55 @@ public class Main extends Application {
         if(!practiseMode) {
             if (anInterface.calculateGrade(wrong) < 60.2f) {
                 primaryStage.setScene(anInterface.lost(backToMainMenu, exitGame));
-                primaryStage.show();
+                setupWindow(primaryStage);
             } else if (counter == 16) {
                 primaryStage.setScene(anInterface.reachedMillion(backToMainMenu, exitGame));
-                primaryStage.show();
+                setupWindow(primaryStage);
             }
         }
         else{
             if(counter == qc.getQuestionLength()){
                 primaryStage.setScene(anInterface.endOfPractiseMode(backToMainMenu, exitGame, retry));
-                primaryStage.centerOnScreen();
-                primaryStage.show();
+                setupWindow(primaryStage);
             }
         }
+    }
+    public void setupNewGame(Stage primaryStage){
+        wrong = 0;
+        counter = 0;
+        resetJoker();
+        qc.resetQuestionCatalog(anInterface.getSelectedTopic());
+        questionAndAnswer = anInterface.setupScene(question, progress, answerA, answerB, answerC, answerD, joker1, joker2, joker3, backToMainMenu);
+        primaryStage.setScene(questionAndAnswer);
+        setupWindow(primaryStage);
+        nextQuestion();
+    }
+    public void setupButton(Button answer){
+        answer.setDisable(false);
+        answer.setStyle(null);
+    }
+    public void setupWindow(Stage primaryStage){
+        primaryStage.centerOnScreen();
+        primaryStage.show();
+    }
+    public void buttonFunction(Button answer, Stage primaryStage){
+        if(!practiseMode) {
+            if (!answer.getText().equals(anInterface.getRightAnswer())) {
+                wrong++;
+            }
+            nextQuestion();
+        }
+        else{
+            if(answer.getText().equals(anInterface.getRightAnswer())){
+                nextQuestion();
+            }
+            else{
+                answer.setDisable(true);
+                wrong++;
+                anInterface.calculatePractiseGrade(wrong, counter);
+            }
+        }
+        checkAnswer(primaryStage);
     }
     public void resetJoker(){
         joker1.setDisable(false);

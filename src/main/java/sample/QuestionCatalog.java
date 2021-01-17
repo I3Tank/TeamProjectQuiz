@@ -125,19 +125,19 @@ public class QuestionCatalog {
             "Which of the following is a process synchronization tool?#Semaphore#Socket#Pipe#Thread",
             "Which of the following is a process synchronization tool?#Mutex#Socket#Pipe#Thread",
             "A problem encountered in multiprogramming when a process is perpetually denied necessary resources is called#Starvation#Inversion#Deadlock#Exclusion",
-            "Which of the following is true for the root directory of file systems?#There is no single root directory in Microsoft file systems#There is no single root directory in Unix-like file systems (Linux, MacOS,…)#’\\’ is the root directory in Microsoft Windows file systems#‘\\root’ is the root directory in Unix-like operating systems (Linux, MacOS, …)",
-            "Which of the following is true for the root directory of file systems?#‘/’ is the root directory in Unix-like operating systems (Linux, MacOS, …)#There is no single root directory in Unix-like file systems (Linux, MacOS,…)#’\\’ is the root directory in Microsoft Windows file systems#‘\\root’ is the root directory in Unix-like operating systems (Linux, MacOS, …)",
+            "Which of the following is true for the root directory of file systems?#There is no single root directory in Microsoft file systems#There is no single root directory in Unix-like file systems (Linux, MacOS,…)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, …)",
+            "Which of the following is true for the root directory of file systems?#'/' is the root directory in Unix-like operating systems (Linux, MacOS, …)#There is no single root directory in Unix-like file systems (Linux, MacOS,…)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, …)",
             "The code that changes the value of a semaphore is#Critical section code#Non-Critical section code#Exclusion section code#Remainder section code",
             "Which memory type has the fastest access time?#Registers#Cache#RAM#SSD",
-            "Which memory type has the fastest access time?#Cache##RAM#SSD#HDD",
+            "Which memory type has the fastest access time?#Cache#RAM#SSD#HDD",
             "If one thread opens a file with read privileges then#Other threads in the same process can also read from that file#Other threads in another process can also read from that file#Any other thread can not read from that file#Other threads in another process can also write to that file",
             "If one thread opens a file with read privileges then#No thread can write to that file#Other threads in another process can also read from that file#Any other thread can not read from that file#Other threads in another process can also write to that file",
             "Mutual exclusion can be provided by#binary semaphores#binary exclusions#critical regions#safe areas",
             "Mutual exclusion can be provided by#mutex locks#binary exclusions#critical regions#safe areas",
             "At a particular time of computation the value of a counting semaphore is 7. Then 20 acquire operations and 15 release operations were completed on these semaphore. The resulting value of the semaphore is#2#7#12#28",
             "What is returned by the POSIX' fork() system call?#The process ID (pid) of the created process#The process ID (pid) of the calling process#The user ID (uid) of the calling user#The user ID (uid) of the user associated with the new process",
-            "Which of the following statements regarding memory is true?#Disk Memory (HDDs) is about 100 times cheaper than RAM, but data access is 1000 times slower compared to RAM#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore’s law states, that the number of CPUs on a chip doubles every 18 nmonths#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster",
-            "Which of the following statements regarding memory is true?#Registers are CPU-internal memory, made of the same materials as the CPU#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore’s law states, that the number of CPUs on a chip doubles every 18 nmonths#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster",
+            "Which of the following statements regarding memory is true?#Disk Memory (HDDs) is about 100 times cheaper than RAM, but data access is 1000 times slower compared to RAM#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 nmonths#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster",
+            "Which of the following statements regarding memory is true?#Registers are CPU-internal memory, made of the same materials as the CPU#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 months#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster",
     };
     /*
     "QuestionCatalog" first creates a list of our question array. Then it shuffles it and chooses the first 16 questions. Then it saves those into the "shuffledQuestions" array.
@@ -152,12 +152,7 @@ public class QuestionCatalog {
         ArrayList<String> stringList2 = new ArrayList<>(stringList.subList(0,16));
         stringList2.toArray(shuffledQuestions);
     }
-    public String[] getQuestion(){
-        String s = shuffledQuestions[counter];
-        counter++;
 
-        return s.split("#");
-    }
     public void resetQuestionCatalog(String chosenTopic){
         counter = 0;
         List<String> stringList = new ArrayList<>();
@@ -185,6 +180,12 @@ public class QuestionCatalog {
             ArrayList<String> stringList2 = new ArrayList<>(stringList.subList(0, 16));
             stringList2.toArray(shuffledQuestions);
         }
+    }
+    public String[] getQuestion(){
+        String s = shuffledQuestions[counter];
+        counter++;
+
+        return s.split("#");
     }
     public int getQuestionLength(){
         return arrayLength;
