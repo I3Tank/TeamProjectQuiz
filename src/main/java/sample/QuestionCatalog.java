@@ -1,5 +1,7 @@
 package sample;
 
+import java.io.*;
+import java.net.URL;
 import java.util.*;
 import java.util.Collections;
 import java.util.List;
@@ -60,7 +62,7 @@ public class QuestionCatalog {
             "Wieviel ist 8*8?#64#60#54#80",
             "Wieviel ist 9*9?#81#79#91#82",
     };
-    private final String[] bsys = {
+    private String[] bsys = {
             "Which statement about pruefung1.test is true? Drwx---rwx 2 root hans 4096 Jan 13 2020 pruefung1.test#Hans is the owner of the group file#Users in group hans are allowed to read the file#hans is the owner of the file#the filetype is test",
             "Which statement about pruefung1.test is true? Drwx---rwx 2 root hans 4096 Jan 13 2020 pruefung1.test#Users which are not in group hans can execute the file#Users in group hans are allowed to read the file#hans is the owner of the file#the filetype is test",
             "Which statement is true? Operating systems#are managing hardware resources#are always monolithic#are running in user mode only#manage ressources via code-division multiplexing",
@@ -125,8 +127,8 @@ public class QuestionCatalog {
             "Which of the following is a process synchronization tool?#Semaphore#Socket#Pipe#Thread",
             "Which of the following is a process synchronization tool?#Mutex#Socket#Pipe#Thread",
             "A problem encountered in multiprogramming when a process is perpetually denied necessary resources is called#Starvation#Inversion#Deadlock#Exclusion",
-            "Which of the following is true for the root directory of file systems?#There is no single root directory in Microsoft file systems#There is no single root directory in Unix-like file systems (Linux, MacOS,…)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, …)",
-            "Which of the following is true for the root directory of file systems?#'/' is the root directory in Unix-like operating systems (Linux, MacOS, …)#There is no single root directory in Unix-like file systems (Linux, MacOS,…)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, …)",
+            "Which of the following is true for the root directory of file systems?#There is no single root directory in Microsoft file systems#There is no single root directory in Unix-like file systems (Linux, MacOS,...)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, ...)",
+            "Which of the following is true for the root directory of file systems?#'/' is the root directory in Unix-like operating systems (Linux, MacOS, ...)#There is no single root directory in Unix-like file systems (Linux, MacOS,...)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, ...)",
             "The code that changes the value of a semaphore is#Critical section code#Non-Critical section code#Exclusion section code#Remainder section code",
             "Which memory type has the fastest access time?#Registers#Cache#RAM#SSD",
             "Which memory type has the fastest access time?#Cache#RAM#SSD#HDD",
@@ -138,6 +140,7 @@ public class QuestionCatalog {
             "What is returned by the POSIX' fork() system call?#The process ID (pid) of the created process#The process ID (pid) of the calling process#The user ID (uid) of the calling user#The user ID (uid) of the user associated with the new process",
             "Which of the following statements regarding memory is true?#Disk Memory (HDDs) is about 100 times cheaper than RAM, but data access is 1000 times slower compared to RAM#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 nmonths#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster",
             "Which of the following statements regarding memory is true?#Registers are CPU-internal memory, made of the same materials as the CPU#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 months#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster",
+            "Which of the following statements regarding memory is true?#Registers are CPU-internal memory, made of the same materials as the CPU#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 months#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster",
     };
     /*
     "QuestionCatalog" first creates a list of our question array. Then it shuffles it and chooses the first 16 questions. Then it saves those into the "shuffledQuestions" array.
@@ -146,13 +149,22 @@ public class QuestionCatalog {
     "resetQuestionCatalog" chooses which question array to use depending on the topic chosen. The chosen array is saved in "shuffledQuestions" Sets our "arrayLength" for
     the practise mode. Resets "counter" to 0.
      */
-    public QuestionCatalog() {
-        List<String> stringList = Arrays.asList(math);
-        Collections.shuffle(stringList);
-        ArrayList<String> stringList2 = new ArrayList<>(stringList.subList(0,16));
-        stringList2.toArray(shuffledQuestions);
-    }
+//    public String filename = "src/main/resources/BSYS_Fragen.txt";
+//    private final String[] bsys = fileToList();
 
+//    public String[] fileToList() {
+//        URL url = getClass().getResource("test");
+//        File file = new File(url.getPath());
+//        List<String> fileList = new ArrayList<>();
+//        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+//            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+//                fileList.add(line);
+//            }
+//        } catch (IOException e) {
+//            System.err.format("Could not read %s: %s%n", file, e);
+//        }
+//        return fileList.toArray(new String[]{});
+//    }
     public void resetQuestionCatalog(String chosenTopic){
         counter = 0;
         List<String> stringList = new ArrayList<>();
@@ -189,5 +201,8 @@ public class QuestionCatalog {
     }
     public int getQuestionLength(){
         return arrayLength;
+    }
+    public int getCounter() {
+        return counter;
     }
 }

@@ -1,31 +1,43 @@
 package sample;
 
 public class CalculateAndFormat {
-    private double practiseGrade;
 
     public String formatAnswer(String toFormat){
         int lastSpace = 0;
-        if(toFormat.length() >= 75) {
-            for (int i = 0; i < toFormat.length(); i++) {
-                if (toFormat.charAt(i) == ' ' && i < 75) {
-                    lastSpace = i;
+        int toCheck = 75;
+        char[] charArray = toFormat.toCharArray();
+
+        if(toFormat.length() >= 50) {
+            for(int j = 0; j < (toFormat.length()/75); j++) {
+                for (int i = 0; i < toFormat.length(); i++) {
+                    if (toFormat.charAt(i) == ' ' && i < toCheck) {
+                        lastSpace = i;
+                    }
                 }
+                charArray[lastSpace] = '\n';
+                toCheck += 75;
             }
-            return toFormat.replaceAll("(.{"+ (lastSpace + 1) + "})", "$1\n");
+            return String.valueOf(charArray);
         }
         return toFormat;
     }
     public String formatQuestion(String toFormat){
         int lastSpace = 0;
+        int toCheck = 45;
+        char[] charArray = toFormat.toCharArray();
+
         if(toFormat.length() >= 50) {
-            for (int i = 0; i < toFormat.length(); i++) {
-                if (toFormat.charAt(i) == ' ' && i < 50) {
-                    lastSpace = i;
+            for(int j = 0; j < (toFormat.length()/45); j++) {
+                for (int i = 0; i < toFormat.length(); i++) {
+                    if (toFormat.charAt(i) == ' ' && i < toCheck) {
+                        lastSpace = i;
+                    }
                 }
+                charArray[lastSpace] = '\n';
+                toCheck += 45;
             }
-            return toFormat.replaceAll("(.{"+ (lastSpace + 1) + "})", "$1\n");
+            return String.valueOf(charArray);
         }
         return toFormat;
     }
-
 }

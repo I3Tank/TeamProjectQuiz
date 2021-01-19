@@ -144,7 +144,7 @@ public class Main extends Application {
     disabled by the 50:50 joker. setStyle(null) is used to reset the color of the button. Calls the method used to calculate the grade and displays it. Same with the "counter"
      */
     private void nextQuestion(){
-        if(counter <= 15 || practiseMode) {
+        if(qc.getCounter() <= 15 || practiseMode) {
             anInterface.newQuestion();
 
             String[] answers = new String[4];
@@ -171,10 +171,11 @@ public class Main extends Application {
 
             if (practiseMode) {
                 anInterface.calculatePractiseGrade(wrong, counter);
+                progress.setText(+ (counter+1) + "/" + qc.getQuestionLength());
             } else {
                 anInterface.calculateGrade(wrong);
+                progress.setText(+ (counter+1) + "/15");
             }
-            progress.setText(+ (counter+1) + "/" + qc.getQuestionLength());
         }
         counter++;
     }
