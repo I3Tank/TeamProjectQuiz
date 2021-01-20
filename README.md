@@ -16,6 +16,7 @@ If you get the Error: JavaFX runtime components are missing, and are required to
     
 Team_QnA.txt are placeholder Questions.
 
-You can add your own Questions, but you have to use the correct format:
+You can add your own Questions, but you have to use the correct format and you need a minimum of 16 Questions:
+
 
 Question#rightAnswer#wrongAnswer1#wrongAnswer2#wrongAnswer3
