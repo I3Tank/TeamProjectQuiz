@@ -26,14 +26,15 @@ public class QuestionCatalog {
     "resetQuestionCatalog" chooses which question array to use depending on the topic chosen. The chosen array is saved
     in "shuffledQuestions" Sets our "arrayLength" for
     the practise mode. Resets "counter" to 0.
+    "fileToList" reads the lines of our resource Files and returns a String array.
      */
-    public String bsysFile = "src/main/resources/BSYS_Fragen.txt";
-    public String mathFile = "src/main/resources/MATH_Fragen.txt";
-    public String teamFile = "src/main/resources/TEAM_Fragen.txt";
+    public String bsysFile = "src/main/resources/BSYS_QnA.txt";
+    public String mathFile = "src/main/resources/MATH_QnA.txt";
+    public String teamFile = "src/main/resources/TEAM_QnA.txt";
 
-    private String[] bsys = fileToList(bsysFile);
-    private String[] math = fileToList(mathFile);
-    private String[] team = fileToList(teamFile);
+    private final String[] bsys = fileToList(bsysFile);
+    private final String[] math = fileToList(mathFile);
+    private final String[] team = fileToList(teamFile);
 
     public String[] fileToList(String filename) {
         File file = new File(filename);
@@ -47,8 +48,6 @@ public class QuestionCatalog {
         }
         return fileList.toArray(new String[]{});
     }
-
-
     public void resetQuestionCatalog(String chosenTopic){
         counter = 0;
         List<String> stringList = new ArrayList<>();

@@ -78,7 +78,6 @@ public class Interface {
 
         return new Scene(layout, 1200, 675);
     }
-
     /*
     "reachedMillion" formats our winning scene for the exam mode (if you are >=60%) with statistics of total correct answers and your % and grade. Is called "reachedMillion" for the "who wants to be
     a millionaire" theme.
@@ -161,9 +160,8 @@ public class Interface {
     }
     /*
     "getModeList" is used for the ComboBox "modeSelect" content(topics).
-    "formatText" is our algorithm to find the "lastSpace"(' ') within 40 chars, then it adds a new line there, so the text fits in our window/buttons and isn't cut off.
-    (not perfect yet, the very long questions are still messed up).
     "finalGrade" is used to return the grade depending on %.
+    "calculateGrade"/"CalculatePractiseGrade" calculates our grade and displays it.
      */
     public static ObservableList<String> getModeList(){
         return FXCollections.observableArrayList("MATH","BSYS", "TEAM");
@@ -218,6 +216,8 @@ public class Interface {
     public String getWrongAnswer3() {
         return wrongAnswer3;
     }
+
+    //"setLayout" uses generics to allow passing of Button/Label, sets the X/Y Coordinates and the font (and the preferedWidth)
 
     public <T extends Labeled> void setLayout(T element, int x, int y, int size){
         element.setTranslateX(x);

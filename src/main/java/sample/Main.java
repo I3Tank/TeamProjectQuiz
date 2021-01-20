@@ -11,30 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main extends Application {
-    /*
-    If you get the Error: JavaFX runtime components are missing, and are required to run this application
-    U need to:
-    1. Download JavaFX Windows x64 SDK Version 15.0.1 (from https://gluonhq.com/products/javafx/)
-    2. Unzip to a location u find easily
-    3. In Intellij on the top Right > Main > Edit Configuration > VM Options
-    4. Enter this line with YOUR file path to the unziped file:
-    5. --module-path "C:\Program Files\JetBrains\javafx-sdk-15.0.1\lib" --add-modules=javafx.controls,javafx.fxml
-    6. Apply changes
 
-    Official Tutorial: https://www.jetbrains.com/help/idea/javafx.html
-
-    We know that a lot of code can be reused/shortened.
-    Known bugs:
-    -when the replace Joker is used in exam mode the array will be out of bounds 16/16. We haven't figured that one out yet without knowing how to use the
-     debugger correctly in javafx.
-    -long questions aren't formatted correctly yet.
-    -able to get -% in practise mode.
-    -scaling of the window not perfect yet.
-    -no, comic sans it not a bug.
-    If you know a fix, let us know.
-
-    Our final task will be to clean up our mess and fix all the bugs you find :) Good luck and have fun.
-     */
     public static void main(String[] args){
         launch(args);
     }

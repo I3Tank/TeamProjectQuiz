@@ -1,0 +1,78 @@
+Which statement about pruefung1.test is true? Drwx---rwx 2 root hans 4096 Jan 13 2020 pruefung1.test#Hans is the owner of the group file#Users in group hans are allowed to read the file#hans is the owner of the file#the filetype is test
+Which statement about pruefung1.test is true? Drwx---rwx 2 root hans 4096 Jan 13 2020 pruefung1.test#Users which are not in group hans can execute the file#Users in group hans are allowed to read the file#hans is the owner of the file#the filetype is test
+Which statement is true? Operating systems#are managing hardware resources#are always monolithic#are running in user mode only#manage ressources via code-division multiplexing
+Which statement is true? Operating systems#provide system services for application programs#are always monolithic#are running in user mode only#manage ressources via code-division multiplexing
+Which statement is true? Operating systems#provide abstractions to application programmers#are always monolithic#are running in user mode only#manage ressources via code-division multiplexing
+By an operating System, the resource management can be done via#time division multiplexing#frequency division multiplexing#code-division multiplexing#digital multiplexing
+By an operating System, the resource management can be done via#space division multiplexing#frequency division multiplexing#code-division multiplexing#digital multiplexing
+Which of the following are examples for space multiplexed resources?#Memory (RAM)#Single Core CPU#Keyboard#Printer
+Which of the following are examples for space multiplexed resources?#Multi Core CPU#Single Core CPU#Keyboard#Printer
+Which of the following statements are true? In an interrupt driven output#The CPU receives an interrupt when new data has arrived and is ready to be retrieved by the processor#the process waiting for the I/O data remains in the CPU#the CPU runs a user written code and does accordingly#the CPU uses polling to watch the control bit constantly, looping to see if the device is ready
+In which ways can Input and Output be done?#Direct Memory Access (DMA)#Random Access#Digital Converter (DAC)#Random waiting
+In which ways can Input and Output be done?#Interrupt#Random Access#Digital Converter (DAC)#Random waiting
+In which ways can Input and Output be done?#Busy waiting#Random Access#Digital Converter (DAC)#Random waiting
+Which of the following is true for processes?#Possible process states are: ready, running, waiting#A process is part of a programm loaded into main memory#Possible process states are ready, running, interrupted#The program counter is shared by all threads in a process
+Which of the following is true for processes?#A process is a program in execution #A process is part of a programm loaded into main memory#Possible process states are ready, running, interrupted#The program counter is shared by all threads in a process
+Which of the following is true for processes?#A process is associated with an address space in main memory #A process is part of a programm loaded into main memory#Possible process states are_ ready, running, interrupted#The program counter is shared by all threads in a process
+Which of the following are methods used for inter process communication?#Messages#Shared ports#Interrupts#Whistles#Channels
+Which of the following are methods used for inter process communication?#Shared Memory#Shared ports#Interrupts#Whistles#Channels
+Which of the following are methods used for inter process communication?#Pipes#Shared ports#Interrupts#Whistles#Channels
+Which of the following are methods used for inter process communication?#Sockets#Shared ports#Interrupts#Whistles#Channels
+Which Item is not shared by all threads in a process?#Program Counter#Address Space#Global Variables#Open files
+Which Item is not shared by all threads in a process?#Stack#Address Space#Global Variables#Child processes
+User programs access operating systems services via#System calls#direct memory access#I/O interrupts#service calls
+User programs access operating systems services via#application programming interfaces (APIs), e.g. POSIX, Win32 API#direct memory access#I/O interrupts#service calls
+What sections does the image of a process in memory consist of?#Text#Pointer#Program Counter#Code
+What sections does the image of a process in memory consist of?#Data#Pointer#Program Counter#Code
+What sections does the image of a process in memory consist of?#Stack#Pointer#Program Counter#Code
+What sections does the image of a process in memory consist of?#Heap#Pointer#Program Counter#Code
+What is the POSIX system call Pthread_join used for?#To wait for a specific thread to finish#To start a new thread#To merge the results of two threads#To load a thread into the process address space in memory
+Inter process communication#allows processes to communicate and synchronize their actions without using the same address space#allows processes to communicate and synchronize their actions using the same address space#allows the processes to only synchronize their actions without communication#is the communication and synchronization between threads of the same process
+Inter process communication#is the communication and synchronization between two processes #allows processes to communicate and synchronize their actions using the same address space#allows the processes to only synchronize their actions without communication#is the communication and synchronization between threads of the same process
+A semaphore is a shared integer variable#That can not drop below zero#that can not drop below one#that can not be more than one#that can not be more than zero
+A semaphore is a shared integer variable#That can be more than two#that can not drop below one#that can not be more than one#that can not be more than zero
+If several processes access the same data at the same time and the result of the execution depends on the respective order in which the access takes place, this is called#a race condition#a dynamic condition#a safe condition#a critical condition
+How can a user interact with a linux System?#Bash#Bus#RFC#Kernel
+How can a user interact with a linux System?#Shell#Bus#RFC#Kernel
+How can a user interact with a linux System?#GUI#Bus#RFC#Kernel
+Debian, Ubuntu, Kali and Mint are#Operating Systems#Shell#Linux Kernels#Linus commands
+Debian, Ubuntu, Kali and Mint are#Linux Distributions#Shell#Linux Kernels#Linus commands
+Linux is#from Linus Torvalds#from Apple#from Microsoft#Proprietary
+Linux is#Open Source#from Apple#from Microsoft#Proprietary
+Linux is#Monolitic#from Apple#from Microsoft#Proprietary
+What should Linux/ Unix programs do? (Peter H. Salus)#Just one thing#As much as possible#None of them#Handle binary streams
+What should Linux/ Unix programs do? (Peter H. Salus)#Work together#As much as possible#None of them#Handle binary streams
+A computer system has 6 tape drives with n processes competing them. Each process may need 3 tape drivers What is the maximum value of n for which the system is guaranteed to be deadlock free?#2#4#6#1
+What statement about Bitmaps is true?#The larger the allocation unit, the smaller the bitmap#Bitmaps are always more efficient than linked lists#It is easy to find appropriate holves via bitmap#The smaller the allocation unit, the smaller the bitmap
+What statement about Bitmaps is true?#Bitmap is a list which shows if a unit is free or occupied #Bitmaps are always more efficient than linked lists#It is easy to find appropriate holves via bitmap#The smaller the allocation unit, the smaller the bitmap
+For which page replacement algorithm is the modified bit not needed?#First-In, First Out (FIFO)#Not Recently Used (NRU)#Clock#Second Chance#Not Frequently used (NFU)
+Scheduling is done by the operating system to#increase the throughput#decrease CPU utilization#increase the turnaround time#ikeep the CPU more idle
+Scheduling is done by the operating system to#increase CPU utilization#decrease CPU utilization#increase the turnaround time#ikeep the CPU more idle
+Which of the following conditions are required for a deadlock?#No resources can be forcibly removed from a process holding it#No two processes may be simultaneously inside their critical regions#No assumptions may be made about speeds or the number of CPUs#Preemptive scheduling
+Which of the following conditions are required for a deadlock?#A process may hold allocated resources while awaiting assignment of other resources#No two processes may be simultaneously inside their critical regions#No assumptions may be made about speeds or the number of CPUs#Preemptive scheduling
+Which of the following conditions are required for a deadlock?#Mutual exclusion#No two processes may be simultaneously inside their critical regions#No assumptions may be made about speeds or the number of CPUs#Preemptive scheduling
+Which of the following conditions are required for a deadlock?#Circular wait condition#No two processes may be simultaneously inside their critical regions#No assumptions may be made about speeds or the number of CPUs#Preemptive scheduling
+Binary Executables are stored in#/bin#/etc#/lib#/var
+Binary Executables are stored in#/usr/bin#/etc#/lib#/var
+Binary Executables are stored in#/sbin#/etc#/lib#/var
+What is a ready state of a process?#When the process is scheduled to run after some other processes execution#When the process has finished its execution#When the process is using the CPU#When all threads of a process are finished
+Your operating System is set up to detect and recover from dreadlocks - When should your OS not check for deadlocks?#When CPU utilization rises above threshold#Every time a resource request is made#When CPU utilization drops below threshold#Periodically (every n seconds)
+Typical Scheduling algorithms in interactive Systems are#Round-Robin-Scheduling#Shortest Job First#First-Come-First-Served#Shortest Remaining Time Next
+Typical Scheduling algorithms in interactive Systems are#Priority Scheduling#Shortest Job First#First-Come-First-Served#Shortest Remaining Time Next
+Which of the following is a process synchronization tool?#Semaphore#Socket#Pipe#Thread
+Which of the following is a process synchronization tool?#Mutex#Socket#Pipe#Thread
+A problem encountered in multiprogramming when a process is perpetually denied necessary resources is called#Starvation#Inversion#Deadlock#Exclusion
+Which of the following is true for the root directory of file systems?#There is no single root directory in Microsoft file systems#There is no single root directory in Unix-like file systems (Linux, MacOS,...)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, ...)
+Which of the following is true for the root directory of file systems?#'/' is the root directory in Unix-like operating systems (Linux, MacOS, ...)#There is no single root directory in Unix-like file systems (Linux, MacOS,...)#'\\' is the root directory in Microsoft Windows file systems#'\\root' is the root directory in Unix-like operating systems (Linux, MacOS, ...)
+The code that changes the value of a semaphore is#Critical section code#Non-Critical section code#Exclusion section code#Remainder section code
+Which memory type has the fastest access time?#Registers#Cache#RAM#SSD
+Which memory type has the fastest access time?#Cache#RAM#SSD#HDD
+If one thread opens a file with read privileges then#Other threads in the same process can also read from that file#Other threads in another process can also read from that file#Any other thread can not read from that file#Other threads in another process can also write to that file
+If one thread opens a file with read privileges then#No thread can write to that file#Other threads in another process can also read from that file#Any other thread can not read from that file#Other threads in another process can also write to that file
+Mutual exclusion can be provided by#binary semaphores#binary exclusions#critical regions#safe areas
+Mutual exclusion can be provided by#mutex locks#binary exclusions#critical regions#safe areas
+At a particular time of computation the value of a counting semaphore is 7. Then 20 acquire operations and 15 release operations were completed on these semaphore. The resulting value of the semaphore is#2#7#12#28
+What is returned by the POSIX' fork() system call?#The process ID (pid) of the created process#The process ID (pid) of the calling process#The user ID (uid) of the calling user#The user ID (uid) of the user associated with the new process
+Which of the following statements regarding memory is true?#Disk Memory (HDDs) is about 100 times cheaper than RAM, but data access is 1000 times slower compared to RAM#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 nmonths#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster
+Which of the following statements regarding memory is true?#Registers are CPU-internal memory, made of the same materials as the CPU#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 months#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster
+Which of the following statements regarding memory is true?#Registers are CPU-internal memory, made of the same materials as the CPU#The size of the RAM of a 64-bit CPU is typically 64 x 64 bits#Moore's law states, that the number of CPUs on a chip doubles every 18 months#SDD have smaller and faster moving parts than HDDs. Therefore data write/ read access is about 10 to 20 times faster
